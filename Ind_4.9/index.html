@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Карточка пациента</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form id="form" class="form__body" action="/cgi-bin/FormHandler.py">
+		 <div class="form_wrap">
+			  <div class="container">
+					<div class="container__inner">
+						 <div class="content">
+							  <div class="content__title">
+									<h2>Основная информация о пациенте</h2>
+							  </div>
+							  <div class="border__content"></div>
+							  <div class="main__content">
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem" placeholder ="ФИО пациента" id ="NameOfPacietn" name="NameOfPacietn" required>
+									
+										 <div style ="width:0px " class ="for_error">
+											  <p class="valid">
+										 </div>
+									</div>
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem form-control" placeholder ="№ старахового полиса" id = "NumberOfPart" name="NumberOfPart" required>
+										 <div style ="width:0px" class ="for_error">
+											  <p class="valid">
+										 </div>
+									</div>
+									<div class="main__content-elem">
+										 <input type="date" class="contnent__elem" placeholder ="Дата рождения"  id = "YearOfBirth" name="YearOfBirth" required >
+										
+										 <div style ="width:0px " class ="for_error">
+											  <p class="valid">
+										 </div>
+									</div>
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem" placeholder ="Место жительства"  id = "LocationOfPac" name="LocationOfPac" required >
+										 <div style ="width:0px " class ="for_error">
+											  <p class="valid">
+										 </div>
+									</div>
+							  </div>
+							  <div class="content__title">
+								<h2>Диагноз</h2>
+						  		</div>
+								<div class="border__content"></div>
+								<div class="main__content">
+									<div class="main__content-elem">
+										<input type="text" class="contnent__elem" placeholder ="Название болезни" id = "DiseaseName" name= "DiseaseName" required >
+									
+										<div style ="width:0px " class ="for_error">
+											<p class="valid">
+										</div>
+									</div>
+									<div class="main__content-elem">
+										<input type="text" class="contnent__elem" placeholder ="Степень тяжести (если имеется)*" id = "Severity" name="Severity" required>
+										
+										<div style ="width:0px" class ="for_error">
+											<p class="valid">
+										</div>
+									</div>
+								</div>
+								<div class="content__title">
+									<h2>Лечение</h2>
+									  </div>
+									<div class="border__content"></div>
+									<div class="main__content">
+										<div class="main__content-elem">
+											<input type="text" class="contnent__elem" placeholder ="Характер лечения" id = "Treatment" name= "Treatment" required>
+										
+											<div style ="width:0px " class ="for_error">
+												<p class="valid">
+											</div>
+										</div>
+										<div class="main__content-elem">
+											<input type="text" class="contnent__elem" placeholder ="Срок лечения, в днях" id = "DurationOfTreat" name="DurationOfTreat" required>
+											
+											<div style ="width:0px" class ="for_error">
+												<p class="valid">
+											</div>
+										</div>
+									</div>
+
+							  <div class="border__content"></div>
+							  <div class="footer__content">
+					
+									<div class="footer__content-elem">
+										 <button type="submit" class="button__footer button__footet-singin" id ="send" name="send">Сохранить карточку пациента</button>
+									</div>
+							  </div>
+						 </div>
+					</div>
+			  </div>
+		 </div>
+	</form>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="numbermask.js"></script>
+<script>
+  $('#NumberOfPart').click(function () {
+
+    $('#NumberOfPart').numbermask({
+        mask: "####-####-####-####"
+    });
+
+});
+</script>
+</body>
+</html>

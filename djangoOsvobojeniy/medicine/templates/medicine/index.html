@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'medicine/main.css' %}">
+    <link rel="stylesheet" href=" {%  static 'medicine/reset.css' %} ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <title>Главная страница</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_inner">
+            <div class="newPac">
+                <input class="newPac_button" type="button" value="+" onclick="window.location.href='{% url 'New-pacient' %}'">
+            </div>
+            {% for el in card %}
+                <div class="content">
+                    <div class="content_inner">
+                        <div class="main_content">
+                             ФИО: {{ el.name }}
+                        </div>
+                        <div class="main_content">
+                             Диагноз: {{ el.diag }}
+                        </div>
+                        <div class="main_content">
+                            Способ лечения: {{ el.treat }}
+                        </div>
+                        <div class="content_button">
+                            <input type="button" value="Подробнее"  onclick="window.location.href='{% url 'pacient-detail' el.id %} '">
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

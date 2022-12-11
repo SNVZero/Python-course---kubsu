@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="{% static 'medicine/main.css' %}">
+    <link rel="stylesheet" href=" {%  static 'medicine/reset.css' %} ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <title>Удаление пациета - {{ pac.NamePac }}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_inner">
+                <div class="content">
+                    <div class="content_inner">
+                        <form  method="post" >
+                            {% csrf_token %}
+                            <div class="main_content">
+                                <h5>Вы собираетесь удалить карточку пациента - {{ pac.NamePac }}</h5>
+                            </div>
+                          <div class="content_button">
+                                 <button class="button_submit" type="submit">Подтвердить удаление</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

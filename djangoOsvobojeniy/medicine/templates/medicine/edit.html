@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Форма добавления карточки пациента</title>
+    <link rel="stylesheet" href="{% static 'medicine/main.css' %}">
+    <link rel="stylesheet" href=" {%  static 'medicine/reset.css' %} ">
+    <link rel="stylesheet" href=" {%  static 'medicine/form.css' %} ">
+
+</head>
+<body>
+<form class="form__body" method="post" >
+        {% csrf_token %}
+		 <div class="form_wrap">
+			  <div class="container">
+					<div class="container__inner">
+						 <div class="content">
+                             <span>{{ error }}</span>
+							  <div class="content__title">
+									<h2>Основная информация о пациенте</h2>
+							  </div>
+							  <div class="border__content"></div>
+							  <div class="main__content">
+									<div class="main__content-elem">
+										 {{ pac.NamePac }}
+									</div>
+									<div class="main__content-elem">
+										 {{ pac.Policy }}
+									</div>
+									<div class="main__content-elem">
+										{{ pac.Birth }}
+									</div>
+									<div class="main__content-elem">
+                                        {{pac.Location}}
+									</div>
+							  </div>
+							  <div class="content__title">
+								<h2>Диагноз</h2>
+						  		</div>
+								<div class="border__content"></div>
+								<div class="main__content">
+									<div class="main__content-elem">
+                                        {{dia.Diagnos}}
+									</div>
+									<div class="main__content-elem">
+										{{ dia.Severity }}
+									</div>
+								</div>
+								<div class="content__title">
+									<h2>Лечение</h2>
+									  </div>
+									<div class="border__content"></div>
+									<div class="main__content">
+										<div class="main__content-elem">
+                                            {{treat.MethodOfThreatment}}
+										</div>
+										<div class="main__content-elem">
+											{{ treat.DurationOfTreat }}
+                                        </div>
+
+									</div>
+
+							  <div class="border__content"></div>
+							  <div class="footer__content">
+
+									<div class="footer__content-elem">
+										 <button type="submit" class="button__footer button__footet-singin" >Сохранить карточку пациента</button>
+									</div>
+							  </div>
+						 </div>
+					</div>
+			  </div>
+		 </div>
+	</form>
+
+</body>
+</html>

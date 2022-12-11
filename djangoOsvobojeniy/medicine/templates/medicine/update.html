@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Изменение карточки пациента</title>
+    <link rel="stylesheet" href="{% static 'medicine/main.css' %}">
+    <link rel="stylesheet" href=" {%  static 'medicine/reset.css' %} ">
+    <link rel="stylesheet" href=" {%  static 'medicine/form.css' %} ">
+</head>
+<body>
+	<form id="form" class="form__body" method="post" >
+          {% csrf_token %}
+		 <div class="form_wrap">
+			  <div class="container">
+					<div class="container__inner">
+						 <div class="content">
+							  <div class="content__title">
+									<h2>Основная информация о пациенте</h2>
+							  </div>
+							  <div class="border__content"></div>
+							  <div class="main__content">
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem" placeholder ="ФИО пациента" id ="NameOfPacietn" name="NameOfPacietn" value="{{ pac.NamePac }}" required>
+									</div>
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem form-control" placeholder ="№ старахового полиса" maxlength="9" id = "NumberOfPart" name="NumberOfPart" value="{{ pac.Policy }}" required>
+									</div>
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem" placeholder ="Дата рождения"  id = "YearOfBirth" name="YearOfBirth" value="{{ pac.Birth }}" required >
+									</div>
+									<div class="main__content-elem">
+										 <input type="text" class="contnent__elem" placeholder ="Место жительства"  id = "LocationOfPac" name="LocationOfPac" value="{{ pac.Location }}"  required >
+									</div>
+							  </div>
+							  <div class="content__title">
+								<h2>Диагноз</h2>
+						  		</div>
+								<div class="border__content"></div>
+								<div class="main__content">
+									<div class="main__content-elem">
+										<input type="text" class="contnent__elem" placeholder ="Название болезни" id = "DiseaseName" name= "DiseaseName" value="{{ dia.Diagnos }}" required >
+									</div>
+									<div class="main__content-elem">
+										<input type="text" class="contnent__elem" placeholder ="Степень тяжести (если имеется)*" id = "Severity" name="Severity" value="{{ dia.Severity }}" required>
+									</div>
+								</div>
+								<div class="content__title">
+									<h2>Лечение</h2>
+									  </div>
+									<div class="border__content"></div>
+									<div class="main__content">
+										<div class="main__content-elem">
+											<input type="text" class="contnent__elem" placeholder ="Характер лечения" id = "Treatment" name= "Treatment" value="{{ treat.MethodOfThreatment }}" required>
+										</div>
+										<div class="main__content-elem">
+											<input type="text" class="contnent__elem" placeholder ="Срок лечения, в днях" id = "DurationOfTreat" name="DurationOfTreat" value="{{ treat.DurationOfTreat }}" required>
+									</div>
+							  <div class="border__content"></div>
+							  <div class="footer__content">
+
+									<div class="footer__content-elem">
+										 <button type="submit" class="button__footer button__footet-singin" id ="send" name="send">Сохранить карточку пациента</button>
+									</div>
+							  </div>
+						 </div>
+					</div>
+			  </div>
+		 </div>
+	</form>
+
+</body>
+</html>
